@@ -8,8 +8,8 @@ const get_users = (req, res) => {
   });
 };
 
-// register user
-const register_user = (req, res) => {
+// sign up
+const signup_user = (req, res) => {
   const { name, email, password } = req.body;
   const sqlPost = "INSERT INTO users_table (name, email, password) VALUES (?, ?, ?)";
   db.query(sqlPost, [name, email, password], (error, result) => {
@@ -21,5 +21,5 @@ const register_user = (req, res) => {
 
 module.exports = {
   get_users,
-  register_user,
+  signup_user,
 };
