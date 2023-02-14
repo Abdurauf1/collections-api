@@ -1,15 +1,10 @@
 const express = require("express");
-const db = require("./database/db");
+const usersRoutes = require("./routes/usersRoutes");
 
 const app = express();
 const port = 5000;
 
-app.get("/api/get", (req, res) => {
-  const sqlInsert = "SELECT * FROM users_table";
-  db.query(sqlInsert, (error, result) => {
-    res.send(result)
-  });
-});
+app.use("/api", usersRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
